@@ -34,11 +34,18 @@ function initMap() {
 window.initMap = initMap;
 
 let currentSlide = 0;
-const slides = document.querySelectorAll(".responsive-img");
+const slides = document.querySelectorAll(".slider img");
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
-    slide.style.display = i === index ? "block" : "none";
+    slide.classList.remove("active", "prev", "next");
+    if (i === index) {
+      slide.classList.add("active");
+    } else if (i === (index - 1 + slides.length) % slides.length) {
+      slide.classList.add("prev");
+    } else if (i === (index + 1) % slides.length) {
+      slide.classList.add("next");
+    }
   });
 }
 
@@ -48,6 +55,6 @@ function nextSlide() {
 }
 
 if (slides.length > 0) {
-  setInterval(nextSlide, 3000);
+  setInterval(nextSlide, 4000);
   showSlide(currentSlide);
 }
