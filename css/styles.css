@@ -200,4 +200,28 @@ footer {
   color: #222;
 }
 
+.slider {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      overflow: hidden;
+    }
+    .slider img {
+      position: absolute;
+      width: 100%;
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+      opacity: 0;
+    }
+    .slider img.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slider img.prev {
+      transform: translateX(-100%);
+    }
+    .slider img.next {
+      transform: translateX(100%);
+    }
+
 
