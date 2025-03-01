@@ -111,7 +111,7 @@ ul li:hover {
 .responsive-img {
   display: block;
   width: 100%;
-  max-width: 600px; /* you can tweak if you prefer smaller or bigger max width */
+  max-width: 600px; 
   height: auto;
   border-radius: 8px;
   margin: 20px auto;
@@ -153,32 +153,51 @@ footer {
   font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
+@media (min-width: 600px) {
+  body {
+    font-size: 1.2em;
   }
 
-  nav ul li {
-    width: 100%;
+  nav ul {
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .container {
-    width: 85%;
+    width: 80%;
   }
 
-  h1 {
-    font-size: 2.5rem;
+  .responsive-img {
+    max-width: 500px;
   }
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2rem;
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.4em;
+  }
+
+  nav ul {
+    justify-content: flex-start;
   }
 
   .container {
-    width: 95%;
+    width: 70%;
   }
+
+  .responsive-img {
+    max-width: 400px;
+  }
+}
+
+.dark-mode {
+  background-color: #222;
+  color: white;
+}
+
+.button.dark-mode {
+  background: #ffcc00;
+  color: #222;
 }
 
 
