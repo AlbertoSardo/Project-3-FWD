@@ -71,7 +71,6 @@ function initMap() {
 
 window.initMap = initMap;
 
-
 let currentSlide = 0;
 const slides = document.querySelectorAll(".responsive-img");
 
@@ -86,8 +85,8 @@ function nextSlide() {
   showSlide(currentSlide);
 }
 
+setInterval(nextSlide, 3000);
 
-if (slides.length > 0) {
-  setInterval(nextSlide, 3000);
+document.addEventListener("DOMContentLoaded", () => {
   showSlide(currentSlide);
-}
+});
