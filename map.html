@@ -6,43 +6,9 @@
   
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/styles.css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBanEDhV8DD4NyU8mCJ30rIx5ltq_NPQRM"></script>
-  <script>
-    function initMap() {
-      const location = { lat: 46.0056, lng: 8.9526 }; 
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 12,
-        center: location,
-        mapTypeId: 'hybrid'
-      });
-
-      const marker = new google.maps.Marker({
-        position: location,
-        map: map,
-        title: "Lugano, Switzerland"
-      });
-
-      const infoWindow = new google.maps.InfoWindow({
-        content: "<h3>Lugano, Switzerland</h3><p>A beautiful city in the Swiss canton of Ticino.</p>"
-      });
-      marker.addListener("click", () => {
-        infoWindow.open(map, marker);
-      });
-
-      const cityCircle = new google.maps.Circle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map: map,
-        center: location,
-        radius: 5000
-      });
-    }
-  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBanEDhV8DD4NyU8mCJ30rIx5ltq_NPQRM&callback=initMap"></script>
+  
 </head>
-<body onload="initMap()">
 
   <nav>
     <ul>
