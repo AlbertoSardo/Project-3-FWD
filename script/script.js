@@ -37,31 +37,30 @@ document.addEventListener("DOMContentLoaded", function() {
   let currentSlide = 0;
   const slides = document.querySelectorAll(".slider img");
 
-  if (slides.length === 0) {
-    console.error("No images found in slider.");
-    return;
-  }
-
   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.remove("active", "prev", "next");
-      slide.style.opacity = "0";
-      slide.style.transform = "translateX(100%)";
+      if (i === index) {
+        slide.classList.add("active");
+      } else if (i === (index - 1 + slides.length) % slides.length) {
+        slide.classList.add("prev");
+      } else if (i === (index + 1) % slides.length) {
+        slide.classList.add("next");
+      }
     });
-
-    slides[index].classList.add("active");
-    slides[index].style.opacity = "1";
-    slides[index].style.transform = "translateX(0)";
-
-    const prevIndex = (index - 1 + slides.length) % slides.length;
-    slides[prevIndex].classList.add("prev");
-    slides[prevIndex].style.transform = "translateX(-100%)";
   }
 
   function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
   }
+
+  if (slides.length > 0) {
+    setInterval(nextSlide, 4000);
+    showSlide(currentSlide);
+  }
+});
+
 
   showSlide(currentSlide);
   setInterval(nextSlide, 2000);
