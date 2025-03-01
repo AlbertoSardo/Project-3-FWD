@@ -30,3 +30,5 @@ function initMap() {
         radius: 3000
       });
     }
+
+window.initMap = initMap;
