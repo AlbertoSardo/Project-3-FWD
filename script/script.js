@@ -37,7 +37,10 @@ document.addEventListener("DOMContentLoaded", function() {
   let currentSlide = 0;
   const slides = document.querySelectorAll(".slider img");
 
-  if (slides.length === 0) return;
+  if (slides.length === 0) {
+    console.error("No images found in slider.");
+    return;
+  }
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
@@ -45,11 +48,11 @@ document.addEventListener("DOMContentLoaded", function() {
       slide.style.opacity = "0";
       slide.style.transform = "translateX(100%)";
     });
-    
+
     slides[index].classList.add("active");
     slides[index].style.opacity = "1";
     slides[index].style.transform = "translateX(0)";
-    
+
     const prevIndex = (index - 1 + slides.length) % slides.length;
     slides[prevIndex].classList.add("prev");
     slides[prevIndex].style.transform = "translateX(-100%)";
@@ -61,5 +64,5 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   showSlide(currentSlide);
-  setInterval(nextSlide, 4000);
+  setInterval(nextSlide, 2000);
 });
